@@ -88,10 +88,12 @@ for epoch in range(config['epochs']):
     loss.backward()
     optimizer.step()
 
+    print("Loss: {} at epoch {}".format(loss, epoch))
+
 # Try with custom input
 input_matrix = np.ndarray((10, 1, 3))
 for i in range(10):
-	input_matrix[i, 0, 0] = 100+i
+	input_matrix[i, 0, 0] = i
 	input_matrix[i, 0, 1] = 10*i
 
 input_matrix = torch.tensor(input_matrix).type(torch.FloatTensor).to(computing_device)
